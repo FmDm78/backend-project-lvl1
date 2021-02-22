@@ -41,3 +41,19 @@ export function cheerUser(isAnswercorrect, playerName) {
   }
   return 0;
 }
+
+export function startChallange(taskDescriptiion, getParams, getQuestion, getCorrectAnswer) {
+  let input;
+  let userAnswer;
+  let correctAnswer;
+  let isAnswercorrect = true;
+  const playerName = fHello();
+  taskDescriptiion();
+  for (let i = 1; (i <= excersizesNumber) && isAnswercorrect; i += 1) {
+    input = getParams();
+    userAnswer = getUserAnswerStr(getQuestion(input));
+    correctAnswer = getCorrectAnswer(input);
+    isAnswercorrect = getFeedback(userAnswer, correctAnswer, playerName);
+  }
+  cheerUser(isAnswercorrect, playerName);
+}

@@ -1,12 +1,8 @@
 import {
-  fHello,
   getRandomNum,
-  getFeedback,
-  getUserAnswerStr,
-  cheerUser,
-  excersizesNumber,
   maxNum,
   maxNumMult,
+  startChallange,
 }
   from '../src/cli.js';
 
@@ -14,7 +10,7 @@ function taskDescriptiion() {
   console.log('What is the result of the expression?');
 }
 
-function getParamsCalc() {
+function getParams() {
   const input = [0, 0, 0];
   const numberOpers = 4; // 0 = '+', 1 = '-', 2 = '*', 3 = '/',
   let num1 = 0;
@@ -37,7 +33,7 @@ function getParamsCalc() {
   return input;
 }
 
-function getQuestionCalc(input) {
+function getQuestion(input) {
   let operStr = '';
   const oper = input[0];
   const num1 = input[1];
@@ -61,7 +57,7 @@ function getQuestionCalc(input) {
   return `${num1} ${operStr} ${num2}`;
 }
 
-function getCorrectAnswerCalc(input) {
+function getCorrectAnswer(input) {
   const oper = input[0];
   const num1 = input[1];
   const num2 = input[2];
@@ -85,20 +81,4 @@ function getCorrectAnswerCalc(input) {
   return String(correctAnswer);
 }
 
-function startCalcChallange() {
-  let input;
-  let userAnswer;
-  let correctAnswer;
-  let isAnswercorrect = true;
-  const playerName = fHello();
-  taskDescriptiion();
-  for (let i = 1; (i <= excersizesNumber) && isAnswercorrect; i += 1) {
-    input = getParamsCalc();
-    userAnswer = getUserAnswerStr(getQuestionCalc(input));
-    correctAnswer = getCorrectAnswerCalc(input);
-    isAnswercorrect = getFeedback(userAnswer, correctAnswer, playerName);
-  }
-  cheerUser(isAnswercorrect, playerName);
-}
-
-startCalcChallange();
+startChallange(taskDescriptiion, getParams, getQuestion, getCorrectAnswer);

@@ -1,11 +1,7 @@
 import {
-  fHello,
   getRandomNum,
-  getFeedback,
-  getUserAnswerStr,
-  cheerUser,
-  excersizesNumber,
   maxNumMult,
+  startChallange,
 }
   from '../src/cli.js';
 
@@ -13,7 +9,7 @@ function taskDescriptiion() {
   console.log('What number is missing in the progression?');
 }
 
-function getParamsProgression() {
+function getParams() {
   const input = [0, 0, 0, 0];
   let start = 0;
   let increase = 0;
@@ -30,7 +26,7 @@ function getParamsProgression() {
   return input;
 }
 
-function getQuestionProgression(input) {
+function getQuestion(input) {
   let inputStr = '';
   const start = input[0];
   const increase = input[1];
@@ -46,7 +42,7 @@ function getQuestionProgression(input) {
   return inputStr;
 }
 
-function getCorrectAnswerProgression(input) {
+function getCorrectAnswer(input) {
   const start = input[0];
   const increase = input[1];
   const missing = input[3];
@@ -54,20 +50,4 @@ function getCorrectAnswerProgression(input) {
   return String(correctAnswer);
 }
 
-function startProgressionChallange() {
-  let input;
-  let userAnswer;
-  let correctAnswer;
-  let isAnswercorrect = true;
-  const playerName = fHello();
-  taskDescriptiion();
-  for (let i = 1; (i <= excersizesNumber) && isAnswercorrect; i += 1) {
-    input = getParamsProgression();
-    userAnswer = getUserAnswerStr(getQuestionProgression(input));
-    correctAnswer = getCorrectAnswerProgression(input);
-    isAnswercorrect = getFeedback(userAnswer, correctAnswer, playerName);
-  }
-  cheerUser(isAnswercorrect, playerName);
-}
-
-startProgressionChallange();
+startChallange(taskDescriptiion, getParams, getQuestion, getCorrectAnswer);
