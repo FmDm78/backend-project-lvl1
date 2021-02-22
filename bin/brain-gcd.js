@@ -30,8 +30,15 @@ function getQuestion(input) {
 function getCorrectAnswer(input) {
   const num1 = input[0];
   const num2 = input[1];
-  let a = (num1 >= num2) ? num1 : num2;
-  let b = (num1 < num2) ? num1 : num2;;
+  let a;
+  let b;
+  if (num1 >= num2) {
+    a = num1;
+    b = num2;
+  } else {
+    b = num1;
+    a = num2;    
+  }
   while (input.length > 0) {
     if (b === 0) return String(a);
     a %= b;
