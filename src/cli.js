@@ -11,11 +11,11 @@ export function fHello() {
   return name;
 }
 
-export function getFeedback(userAnswer, correctAnswer, playerName) {
+export function getFeedback(userAnswer, correctAnswer) {
   if (userAnswer === correctAnswer) {
     console.log('Correct!');
   } else {
-    console.log(`\"${userAnswer}\" is wrong answer ;(. Correct answer was \"${correctAnswer}\"`); 
+    console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${correctAnswer}"`); 
     return false;
   }
   return true;
@@ -33,7 +33,7 @@ export function cheerUser(isAnswercorrect, playerName) {
   if (isAnswercorrect) {
     console.log(`Congratulations, ${playerName}!`);
   } else {
-    console.log(`Let\`s try again, ${playerName}!`);
+    console.log(`Let's try again, ${playerName}!`);
   }
   return 0;
 }
@@ -49,7 +49,7 @@ export function startChallange(taskDescriptiion, getParams, getQuestion, getCorr
     input = getParams();
     userAnswer = getUserAnswer(getQuestion(input));
     correctAnswer = getCorrectAnswer(input);
-    isAnswercorrect = getFeedback(userAnswer, correctAnswer, playerName);
+    isAnswercorrect = getFeedback(userAnswer, correctAnswer);
   }
   cheerUser(isAnswercorrect, playerName);
 }
