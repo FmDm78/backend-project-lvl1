@@ -5,7 +5,7 @@ export const maxNum = 100;
 export const maxNumMult = 10;
 
 export function fHello() {
-  console.log(`Welcome to the Brain Games!`);
+  console.log('Welcome to the Brain Games!');
   const name = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${name} !`);
   return name;
@@ -15,7 +15,7 @@ export function getFeedback(userAnswer, correctAnswer) {
   if (userAnswer === correctAnswer) {
     console.log('Correct!');
   } else {
-    console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${correctAnswer}"`); 
+    console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${correctAnswer}"`);
     return false;
   }
   return true;

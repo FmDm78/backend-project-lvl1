@@ -14,7 +14,7 @@ function getParams() {
   const input = [0, 0];
   let num1 = getRandomNum(maxNumMult, 1);
   let num2 = getRandomNum(maxNumMult, 1);
-  let num3 = getRandomNum(maxNumMult, 1);
+  const num3 = getRandomNum(maxNumMult, 1);
   num1 *= num3;
   num2 *= num3;
   input[0] = num1;
@@ -38,7 +38,7 @@ function getCorrectAnswer(input) {
     b = num2;
   } else {
     b = num1;
-    a = num2;    
+    a = num2;
   }
   while (input.length > 0) {
     if (b === 0) return String(a);
