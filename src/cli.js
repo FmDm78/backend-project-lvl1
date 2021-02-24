@@ -31,9 +31,9 @@ export function getUserAnswer(task) {
 
 export function cheerUser(isAnswercorrect, playerName) {
   if (isAnswercorrect) {
-    console.log(`Congratulations, ${playerName} !`);
+    console.log(`Congratulations, ${playerName}!`);
   } else {
-    console.log(`Let\`s try again, ${playerName} !`);
+    console.log(`Let\`s try again, ${playerName}!`);
   }
   return 0;
 }
