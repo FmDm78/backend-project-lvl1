@@ -16,7 +16,7 @@ function getParams() {
 }
 
 function getQuestion(input) {
-  return String(input);
+  return input;
 }
 
 function getCorrectAnswer(input) {

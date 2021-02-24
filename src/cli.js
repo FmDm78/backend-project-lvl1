@@ -21,16 +21,12 @@ export function getFeedback(userAnswer, correctAnswer, playerName) {
   return true;
 }
 
-export function getRandomNum(maxNum, offset) {
-  return Math.floor((Math.random() * maxNum) + offset);
+export function getRandomNum(aMaxNum, offset) {
+  return Math.floor((Math.random() * aMaxNum) + offset);
 }
 
-export function getUserAnswerStr(task) {
-  return readlineSync.question(`Question:  ${task} \nYour answer: `);
-}
-
-export function getUserAnswerInt(task) {
-  return readlineSync.questionInt(`Question:  ${task} \nYour answer: `);
+export function getUserAnswer(task) {
+  return readlineSync.question(`Question: ${task} \nYour answer: `);
 }
 
 export function cheerUser(isAnswercorrect, playerName) {
@@ -51,7 +47,7 @@ export function startChallange(taskDescriptiion, getParams, getQuestion, getCorr
   taskDescriptiion();
   for (let i = 1; (i <= excersizesNumber) && isAnswercorrect; i += 1) {
     input = getParams();
-    userAnswer = getUserAnswerStr(getQuestion(input));
+    userAnswer = getUserAnswer(getQuestion(input));
     correctAnswer = getCorrectAnswer(input);
     isAnswercorrect = getFeedback(userAnswer, correctAnswer, playerName);
   }
