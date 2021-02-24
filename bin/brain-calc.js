@@ -13,7 +13,7 @@ function taskDescriptiion() {
 
 function getParams() {
   const input = [0, 0, 0];
-  const numberOpers = 4; // 0 = '+', 1 = '-', 2 = '*', 3 = '/',
+  const numberOpers = 3; // 0 = '+', 1 = '-', 2 = '*', 3 = '/',
   let num1 = 0;
   let num2 = 0;
   let oper = 0;
