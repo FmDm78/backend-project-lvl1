@@ -28,17 +28,8 @@ export function getQuestion(input) {
 }
 
 export function getCorrectAnswer(input) {
-  const num1 = input[0];
-  const num2 = input[1];
-  let a;
-  let b;
-  if (num1 >= num2) {
-    a = num1;
-    b = num2;
-  } else {
-    b = num1;
-    a = num2;
-  }
+  let a = Math.min(input[0], input[1]);
+  let b = Math.max(input[0], input[1]);
   while (input.length > 0) {
     if (b === 0) return String(a);
     a %= b;
