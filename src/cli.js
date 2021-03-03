@@ -4,18 +4,22 @@ export const excersizesNumber = 3;
 export const maxNum = 100;
 export const maxNumMult = 10;
 
+export function output(strToScreen) {
+  console.log(strToScreen);
+}
+
 export function fHello() {
-  console.log('Welcome to the Brain Games!');
+  output('Welcome to the Brain Games!');
   const name = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${name} !`);
+  output(`Hello, ${name} !`);
   return name;
 }
 
 export function getFeedback(userAnswer, correctAnswer) {
   if (userAnswer === correctAnswer) {
-    console.log('Correct!');
+    output('Correct!');
   } else {
-    console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${correctAnswer}"`);
+    output(`"${userAnswer}" is wrong answer ;(. Correct answer was "${correctAnswer}"`);
     return false;
   }
   return true;
@@ -31,9 +35,9 @@ export function getUserAnswer(task) {
 
 export function cheerUser(isAnswercorrect, playerName) {
   if (isAnswercorrect) {
-    console.log(`Congratulations, ${playerName}!`);
+    output(`Congratulations, ${playerName}!`);
   } else {
-    console.log(`Let's try again, ${playerName}!`);
+    output(`Let's try again, ${playerName}!`);
   }
   return 0;
 }
