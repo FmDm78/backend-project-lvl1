@@ -1,15 +1,7 @@
 #!/usr/bin/env node
 import {
-  taskDescriptiion,
-  getParams,
-  getQuestion,
-  getCorrectAnswer,
+  executeChallange,
 }
   from '../src/calc.js';
 
-import {
-  startChallange,
-}
-  from '../src/cli.js';
-
-startChallange(taskDescriptiion, getParams, getQuestion, getCorrectAnswer);
+executeChallange();

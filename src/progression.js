@@ -2,6 +2,7 @@ import {
   getRandomNum,
   maxNumMult,
   output,
+  startChallange,
 }
   from './cli.js';
 
@@ -48,4 +49,8 @@ export function getCorrectAnswer(input) {
   const missing = input[3];
   const correctAnswer = start + (increase * missing);
   return String(correctAnswer);
+}
+
+export function executeChallange() {
+  startChallange(taskDescriptiion, getParams, getQuestion, getCorrectAnswer);
 }

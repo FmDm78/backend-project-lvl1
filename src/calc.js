@@ -3,6 +3,7 @@ import {
   maxNum,
   maxNumMult,
   output,
+  startChallange,
 }
   from './cli.js';
 
@@ -79,4 +80,8 @@ export function getCorrectAnswer(input) {
       correctAnswer = undefined;
   }
   return String(correctAnswer);
+}
+
+export function executeChallange() {
+  startChallange(taskDescriptiion, getParams, getQuestion, getCorrectAnswer);
 }

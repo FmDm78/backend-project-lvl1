@@ -2,6 +2,7 @@ import {
   getRandomNum,
   maxNum,
   output,
+  startChallange,
 }
   from './cli.js';
 
@@ -20,4 +21,8 @@ export function getQuestion(input) {
 
 export function getCorrectAnswer(input) {
   return (input % 2 === 0) ? 'yes' : 'no';
+}
+
+export function executeChallange() {
+  startChallange(taskDescriptiion, getParams, getQuestion, getCorrectAnswer);
 }
