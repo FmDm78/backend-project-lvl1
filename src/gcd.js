@@ -1,16 +1,19 @@
 import {
   getRandomNum,
-  maxNumMult,
-  output,
-  startChallange,
 }
-  from './cli.js';
+  from './utils.js';
+
+import {
+  maxNumMult,
+  startGame,
+}
+  from './common.js';
 
 export function taskDescriptiion() {
-  output('Find the greatest common divisor of given numbers.');
+  return 'Find the greatest common divisor of given numbers.';
 }
 
-export function getParams() {
+export function setParams() {
   const input = [0, 0];
   let num1 = getRandomNum(maxNumMult, 1);
   let num2 = getRandomNum(maxNumMult, 1);
@@ -22,13 +25,13 @@ export function getParams() {
   return input;
 }
 
-export function getQuestion(input) {
+export function askQuestion(input) {
   const num1 = input[0];
   const num2 = input[1];
   return `${num1} ${num2}`;
 }
 
-export function getCorrectAnswer(input) {
+export function calcCorrectAnswer(input) {
   let a = Math.min(input[0], input[1]);
   let b = Math.max(input[0], input[1]);
   while (input.length > 0) {
@@ -40,6 +43,6 @@ export function getCorrectAnswer(input) {
   return undefined;
 }
 
-export function executeChallange() {
-  startChallange(taskDescriptiion, getParams, getQuestion, getCorrectAnswer);
+export default function setGame() {
+  return startGame(taskDescriptiion, setParams, askQuestion, calcCorrectAnswer);
 }

@@ -1,24 +1,27 @@
 import {
   getRandomNum,
-  maxNum,
-  output,
-  startChallange,
 }
-  from './cli.js';
+  from './utils.js';
+
+import {
+  maxNum,
+  startGame,
+}
+  from './common.js';
 
 export function taskDescriptiion() {
-  output('Answer "yes" if given number is prime. Otherwise answer "no".');
+  return 'Answer "yes" if given number is prime. Otherwise answer "no".';
 }
 
-export function getParams() {
+export function setParams() {
   return getRandomNum(maxNum, 1);
 }
 
-export function getQuestion(input) {
+export function askQuestion(input) {
   return input;
 }
 
-export function getCorrectAnswer(input) {
+export function calcCorrectAnswer(input) {
   for (let i = 2; i < input; i += 1) {
     if (input % i === 0) {
       return 'no';
@@ -27,6 +30,6 @@ export function getCorrectAnswer(input) {
   return 'yes';
 }
 
-export function executeChallange() {
-  startChallange(taskDescriptiion, getParams, getQuestion, getCorrectAnswer);
+export default function setGame() {
+  return startGame(taskDescriptiion, setParams, askQuestion, calcCorrectAnswer);
 }

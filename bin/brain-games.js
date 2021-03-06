@@ -2,6 +2,6 @@
 import {
   fHello,
 }
-  from '../src/cli.js';
+  from '../src/utils.js';
 
 fHello();

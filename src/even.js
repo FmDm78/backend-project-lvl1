@@ -1,28 +1,31 @@
 import {
   getRandomNum,
+}
+  from './utils.js';
+
+import {
   maxNum,
-  output,
-  startChallange,
+  startGame,
 }
-  from './cli.js';
+  from './common.js';
 
-export function taskDescriptiion() {
-  output('Answer "yes" if the number is even, otherwise answer "no".');
+function taskDescriptiion() {
+  return 'Answer "yes" if the number is even, otherwise answer "no".';
 }
 
-export function getParams() {
+function setParams() {
   const input = getRandomNum(maxNum, 1);
   return input;
 }
 
-export function getQuestion(input) {
+function askQuestion(input) {
   return input;
 }
 
-export function getCorrectAnswer(input) {
+function calcCorrectAnswer(input) {
   return (input % 2 === 0) ? 'yes' : 'no';
 }
 
-export function executeChallange() {
-  startChallange(taskDescriptiion, getParams, getQuestion, getCorrectAnswer);
+export default function setGame() {
+  return startGame(taskDescriptiion, setParams, askQuestion, calcCorrectAnswer);
 }

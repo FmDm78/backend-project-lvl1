@@ -1,19 +1,22 @@
 import {
   getRandomNum,
+}
+  from './utils.js';
+
+import {
   maxNum,
   maxNumMult,
-  output,
-  startChallange,
+  startGame,
 }
-  from './cli.js';
+  from './common.js';
 
-export function taskDescriptiion() {
-  output('What is the result of the expression?');
+function taskDescriptiion() {
+  return 'What is the result of the expression?';
 }
 
-export function getParams() {
+function setParams() {
   const input = [0, 0, 0];
-  const numberOpers = 3; // 0 = '+', 1 = '-', 2 = '*', 3 = '/',
+  const numberOpers = 3; // 0 = '+', 1 = '-', 2 = '*'
   let num1 = 0;
   let num2 = 0;
   let oper = 0;
@@ -25,16 +28,13 @@ export function getParams() {
     num1 = getRandomNum(maxNumMult, 1);
     num2 = getRandomNum(maxNumMult, 1);
   }
-  if (oper === 3) {
-    num1 *= num2;// let`s make (num1 * num2) / num2 === num1
-  }
   input[0] = oper;
-  input[1] = num1;
-  input[2] = num2;
+  input[1] = Math.max(num1, num2);
+  input[2] = Math.min(num1, num2);
   return input;
 }
 
-export function getQuestion(input) {
+function askQuestion(input) {
   let operStr = '';
   const oper = input[0];
   const num1 = input[1];
@@ -49,16 +49,13 @@ export function getQuestion(input) {
     case 2:
       operStr = '*';
       break;
-    case 3:
-      operStr = '/';
-      break;
     default:
       operStr = '';
   }
   return `${num1} ${operStr} ${num2}`;
 }
 
-export function getCorrectAnswer(input) {
+function calcCorrectAnswer(input) {
   const oper = input[0];
   const num1 = input[1];
   const num2 = input[2];
@@ -73,15 +70,12 @@ export function getCorrectAnswer(input) {
     case 2:
       correctAnswer = num1 * num2;
       break;
-    case 3:
-      correctAnswer = num1 / num2;
-      break;
     default:
       correctAnswer = undefined;
   }
   return String(correctAnswer);
 }
 
-export function executeChallange() {
-  startChallange(taskDescriptiion, getParams, getQuestion, getCorrectAnswer);
+export default function setGame() {
+  return startGame(taskDescriptiion, setParams, askQuestion, calcCorrectAnswer);
 }

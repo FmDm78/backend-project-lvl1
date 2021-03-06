@@ -1,16 +1,19 @@
 import {
   getRandomNum,
-  maxNumMult,
-  output,
-  startChallange,
 }
-  from './cli.js';
+  from './utils.js';
+
+import {
+  maxNumMult,
+  startGame,
+}
+  from './common.js';
 
 export function taskDescriptiion() {
-  output('What number is missing in the progression?');
+  return 'What number is missing in the progression?';
 }
 
-export function getParams() {
+export function setParams() {
   const input = [0, 0, 0, 0];
   let start = 0;
   let increase = 0;
@@ -27,7 +30,7 @@ export function getParams() {
   return input;
 }
 
-export function getQuestion(input) {
+export function askQuestion(input) {
   let inputStr = '';
   const start = input[0];
   const increase = input[1];
@@ -43,7 +46,7 @@ export function getQuestion(input) {
   return inputStr;
 }
 
-export function getCorrectAnswer(input) {
+export function calcCorrectAnswer(input) {
   const start = input[0];
   const increase = input[1];
   const missing = input[3];
@@ -51,6 +54,6 @@ export function getCorrectAnswer(input) {
   return String(correctAnswer);
 }
 
-export function executeChallange() {
-  startChallange(taskDescriptiion, getParams, getQuestion, getCorrectAnswer);
+export default function setGame() {
+  return startGame(taskDescriptiion, setParams, askQuestion, calcCorrectAnswer);
 }
