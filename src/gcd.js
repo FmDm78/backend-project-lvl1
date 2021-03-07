@@ -5,15 +5,15 @@ import {
 
 import {
   maxNumMult,
-  startGame,
+  startGameIteration,
 }
   from './common.js';
 
-export function taskDescriptiion() {
+export function taskDescription() {
   return 'Find the greatest common divisor of given numbers.';
 }
 
-export function setParams() {
+function setParams() {
   const input = [0, 0];
   let num1 = getRandomNum(maxNumMult, 1);
   let num2 = getRandomNum(maxNumMult, 1);
@@ -25,13 +25,13 @@ export function setParams() {
   return input;
 }
 
-export function askQuestion(input) {
+function askQuestion(input) {
   const num1 = input[0];
   const num2 = input[1];
   return `${num1} ${num2}`;
 }
 
-export function calcCorrectAnswer(input) {
+function calcCorrectAnswer(input) {
   let a = Math.min(input[0], input[1]);
   let b = Math.max(input[0], input[1]);
   while (input.length > 0) {
@@ -43,6 +43,6 @@ export function calcCorrectAnswer(input) {
   return undefined;
 }
 
-export default function setGame() {
-  return startGame(taskDescriptiion, setParams, askQuestion, calcCorrectAnswer);
+export function setGame() {
+  return startGameIteration(setParams, askQuestion, calcCorrectAnswer);
 }

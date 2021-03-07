@@ -2,4 +2,10 @@
 
 import executeChallange from '../src/index.js';
 
-executeChallange('even');
+import {
+  setGame,
+  taskDescription,
+}
+  from '../src/even.js';
+
+executeChallange(taskDescription, setGame);

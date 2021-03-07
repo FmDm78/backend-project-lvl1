@@ -5,15 +5,15 @@ import {
 
 import {
   maxNumMult,
-  startGame,
+  startGameIteration,
 }
   from './common.js';
 
-export function taskDescriptiion() {
+export function taskDescription() {
   return 'What number is missing in the progression?';
 }
 
-export function setParams() {
+function setParams() {
   const input = [0, 0, 0, 0];
   let start = 0;
   let increase = 0;
@@ -30,7 +30,7 @@ export function setParams() {
   return input;
 }
 
-export function askQuestion(input) {
+function askQuestion(input) {
   let inputStr = '';
   const start = input[0];
   const increase = input[1];
@@ -46,7 +46,7 @@ export function askQuestion(input) {
   return inputStr;
 }
 
-export function calcCorrectAnswer(input) {
+function calcCorrectAnswer(input) {
   const start = input[0];
   const increase = input[1];
   const missing = input[3];
@@ -54,6 +54,6 @@ export function calcCorrectAnswer(input) {
   return String(correctAnswer);
 }
 
-export default function setGame() {
-  return startGame(taskDescriptiion, setParams, askQuestion, calcCorrectAnswer);
+export function setGame() {
+  return startGameIteration(setParams, askQuestion, calcCorrectAnswer);
 }

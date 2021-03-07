@@ -2,4 +2,10 @@
 
 import executeChallange from '../src/index.js';
 
-executeChallange('prime');
+import {
+  setGame,
+  taskDescription,
+}
+  from '../src/prime.js';
+
+executeChallange(taskDescription, setGame);

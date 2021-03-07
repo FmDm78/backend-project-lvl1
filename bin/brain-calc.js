@@ -2,4 +2,10 @@
 
 import executeChallange from '../src/index.js';
 
-executeChallange('calc');
+import {
+  setGame,
+  taskDescription,
+}
+  from '../src/calc.js';
+
+executeChallange(taskDescription, setGame);

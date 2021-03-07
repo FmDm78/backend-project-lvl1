@@ -7,8 +7,6 @@ import {
 export const maxNum = 100;
 export const maxNumMult = 10;
 
-const excersizesNumber = 3;
-
 function sendFeedback(userAnswer, correctAnswer) {
   if (userAnswer === correctAnswer) {
     output('Correct!');
@@ -19,17 +17,10 @@ function sendFeedback(userAnswer, correctAnswer) {
   return true;
 }
 
-export function startGame(taskDescriptiion, setParams, askQuestion, calcCorrectAnswer) {
-  let input;
-  let userAnswer;
-  let correctAnswer;
-  let isAnswercorrect = true;
-  output(taskDescriptiion());
-  for (let i = 1; (i <= excersizesNumber) && isAnswercorrect; i += 1) {
-    input = setParams();
-    userAnswer = getUserAnswer(askQuestion(input));
-    correctAnswer = calcCorrectAnswer(input);
-    isAnswercorrect = sendFeedback(userAnswer, correctAnswer);
-  }
+export function startGameIteration(setParams, askQuestion, calcCorrectAnswer) {
+  const input = setParams();
+  const userAnswer = getUserAnswer(askQuestion(input));
+  const correctAnswer = calcCorrectAnswer(input);
+  const isAnswercorrect = sendFeedback(userAnswer, correctAnswer);
   return isAnswercorrect;
 }

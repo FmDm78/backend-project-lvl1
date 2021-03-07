@@ -6,11 +6,11 @@ import {
 import {
   maxNum,
   maxNumMult,
-  startGame,
+  startGameIteration,
 }
   from './common.js';
 
-function taskDescriptiion() {
+export function taskDescription() {
   return 'What is the result of the expression?';
 }
 
@@ -76,6 +76,6 @@ function calcCorrectAnswer(input) {
   return String(correctAnswer);
 }
 
-export default function setGame() {
-  return startGame(taskDescriptiion, setParams, askQuestion, calcCorrectAnswer);
+export function setGame() {
+  return startGameIteration(setParams, askQuestion, calcCorrectAnswer);
 }

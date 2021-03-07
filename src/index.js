@@ -1,36 +1,18 @@
 import {
   fHello,
   cheerUser,
+  output,
 }
   from './utils.js';
 
-import setCalc from './calc.js';
-import setPrime from './prime.js';
-import setEven from './even.js';
-import setGcd from './gcd.js';
-import setProgression from './progression.js';
+const excersizesNumber = 3;
 
-export default function startChallange(gameToStart) {
-  const playerName = fHello();
+export default function startChallange(taskDescription, startGameIteration) {
   let isAnswercorrect = true;
-  switch (gameToStart) {
-    case 'calc':
-      isAnswercorrect = setCalc();
-      break;
-    case 'prime':
-      isAnswercorrect = setPrime();
-      break;
-    case 'even':
-      isAnswercorrect = setEven();
-      break;
-    case 'gcd':
-      isAnswercorrect = setGcd();
-      break;
-    case 'progression':
-      isAnswercorrect = setProgression();
-      break;
-    default:
-      break;
+  const playerName = fHello();
+  output(taskDescription());
+  for (let i = 1; (i <= excersizesNumber) && isAnswercorrect; i += 1) {
+    isAnswercorrect = startGameIteration();
   }
   cheerUser(isAnswercorrect, playerName);
 }

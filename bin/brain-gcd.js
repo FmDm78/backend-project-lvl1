@@ -2,4 +2,10 @@
 
 import executeChallange from '../src/index.js';
 
-executeChallange('gcd');
+import {
+  setGame,
+  taskDescription,
+}
+  from '../src/gcd.js';
+
+executeChallange(taskDescription, setGame);

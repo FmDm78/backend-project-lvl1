@@ -2,4 +2,10 @@
 
 import executeChallange from '../src/index.js';
 
-executeChallange('progression');
+import {
+  setGame,
+  taskDescription,
+}
+  from '../src/progression.js';
+
+executeChallange(taskDescription, setGame);

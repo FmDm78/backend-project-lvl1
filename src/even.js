@@ -5,11 +5,11 @@ import {
 
 import {
   maxNum,
-  startGame,
+  startGameIteration,
 }
   from './common.js';
 
-function taskDescriptiion() {
+export function taskDescription() {
   return 'Answer "yes" if the number is even, otherwise answer "no".';
 }
 
@@ -26,6 +26,6 @@ function calcCorrectAnswer(input) {
   return (input % 2 === 0) ? 'yes' : 'no';
 }
 
-export default function setGame() {
-  return startGame(taskDescriptiion, setParams, askQuestion, calcCorrectAnswer);
+export function setGame() {
+  return startGameIteration(setParams, askQuestion, calcCorrectAnswer);
 }
