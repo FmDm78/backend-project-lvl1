@@ -6,6 +6,6 @@ import {
   setGame,
   taskDescription,
 }
-  from '../src/gcd.js';
+  from '../src/games/gcd.js';
 
 executeChallange(taskDescription, setGame);

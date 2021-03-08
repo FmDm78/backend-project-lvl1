@@ -6,6 +6,6 @@ import {
   setGame,
   taskDescription,
 }
-  from '../src/calc.js';
+  from '../src/games/calc.js';
 
 executeChallange(taskDescription, setGame);

@@ -6,6 +6,6 @@ import {
   setGame,
   taskDescription,
 }
-  from '../src/progression.js';
+  from '../src/games/progression.js';
 
 executeChallange(taskDescription, setGame);

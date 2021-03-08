@@ -6,6 +6,6 @@ import {
   setGame,
   taskDescription,
 }
-  from '../src/even.js';
+  from '../src/games/even.js';
 
 executeChallange(taskDescription, setGame);

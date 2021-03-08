@@ -1,20 +1,12 @@
-import {
-  getRandomNum,
-}
-  from './utils.js';
-
-import {
-  maxNum,
-  maxNumMult,
-  startGameIteration,
-}
-  from './common.js';
+import getRandomNum from '../utils.js';
 
 export function taskDescription() {
   return 'What is the result of the expression?';
 }
 
 function setParams() {
+  const maxNum = 100;
+  const maxNumMult = 10;  
   const input = [0, 0, 0];
   const numberOpers = 3; // 0 = '+', 1 = '-', 2 = '*'
   let num1 = 0;
@@ -76,6 +68,9 @@ function calcCorrectAnswer(input) {
   return String(correctAnswer);
 }
 
-export function setGame() {
-  return startGameIteration(setParams, askQuestion, calcCorrectAnswer);
+export function setGame() { 
+  const input = setParams();
+  const question = askQuestion(input);
+  const answer = calcCorrectAnswer(input); 
+  return {question, answer}; 
 }

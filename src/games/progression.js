@@ -1,19 +1,11 @@
-import {
-  getRandomNum,
-}
-  from './utils.js';
-
-import {
-  maxNumMult,
-  startGameIteration,
-}
-  from './common.js';
+import getRandomNum from '../utils.js';
 
 export function taskDescription() {
   return 'What number is missing in the progression?';
 }
 
 function setParams() {
+  const maxNumMult = 10;    
   const input = [0, 0, 0, 0];
   let start = 0;
   let increase = 0;
@@ -54,6 +46,9 @@ function calcCorrectAnswer(input) {
   return String(correctAnswer);
 }
 
-export function setGame() {
-  return startGameIteration(setParams, askQuestion, calcCorrectAnswer);
+export function setGame() { 
+  const input = setParams();
+  const question = askQuestion(input);
+  const answer = calcCorrectAnswer(input); 
+  return {question, answer}; 
 }

@@ -6,6 +6,6 @@ import {
   setGame,
   taskDescription,
 }
-  from '../src/prime.js';
+  from '../src/games/prime.js';
 
 executeChallange(taskDescription, setGame);
