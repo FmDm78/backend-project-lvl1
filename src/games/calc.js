@@ -6,7 +6,7 @@ export function taskDescription() {
 
 function setParams() {
   const maxNum = 100;
-  const maxNumMult = 10;  
+  const maxNumMult = 10;
   const input = [0, 0, 0];
   const numberOpers = 3; // 0 = '+', 1 = '-', 2 = '*'
   let num1 = 0;
@@ -68,9 +68,9 @@ function calcCorrectAnswer(input) {
   return String(correctAnswer);
 }
 
-export function setGame() { 
+export function setGame() {
   const input = setParams();
   const question = askQuestion(input);
-  const answer = calcCorrectAnswer(input); 
-  return {question, answer}; 
+  const answer = calcCorrectAnswer(input);
+  return { question, answer };
 }

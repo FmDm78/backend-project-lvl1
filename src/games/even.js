@@ -5,7 +5,7 @@ export function taskDescription() {
 }
 
 function setParams() {
-  const maxNum = 100;  
+  const maxNum = 100;
   const input = getRandomNum(maxNum, 1);
   return input;
 }
@@ -18,9 +18,9 @@ function calcCorrectAnswer(input) {
   return (input % 2 === 0) ? 'yes' : 'no';
 }
 
-export function setGame() { 
+export function setGame() {
   const input = setParams();
   const question = askQuestion(input);
-  const answer = calcCorrectAnswer(input); 
-  return {question, answer}; 
+  const answer = calcCorrectAnswer(input);
+  return { question, answer };
 }

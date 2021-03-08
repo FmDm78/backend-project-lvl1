@@ -13,9 +13,9 @@ export default function startChallange(taskDescription, setGame) {
   output(`Hello, ${playerName} !`);
   output(taskDescription());
   for (let i = 1; (i <= excersizesNumber) && isAnswercorrect; i += 1) {
-    let gameIteration = setGame();    
+    const gameIteration = setGame();
     output(`Question: ${gameIteration.question}`);
-    let userAnswer = readlineSync.question('Your answer: ');
+    const userAnswer = readlineSync.question('Your answer: ');
     if (userAnswer === gameIteration.answer) {
       output('Correct!');
     } else {
