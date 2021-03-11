@@ -1,31 +1,28 @@
 import readlineSync from 'readline-sync';
 
-const excersizesNumber = 3;
+const roundsNumber = 3;
 
-function output(strToScreen) {
-  console.log(strToScreen);
-}
-
-export default function startChallange(taskDescription, setGame) {
+export default function startChallange(taskDescription, getRoundData) {
   let isAnswercorrect = true;
-  output('Welcome to the Brain Games!');
+  console.log('Welcome to the Brain Games!');
   const playerName = readlineSync.question('May I have your name? ');
-  output(`Hello, ${playerName} !`);
-  output(taskDescription());
-  for (let i = 1; (i <= excersizesNumber) && isAnswercorrect; i += 1) {
-    const gameIteration = setGame();
-    output(`Question: ${gameIteration.question}`);
+  console.log(`Hello, ${playerName} !`);
+  console.log(taskDescription);
+  for (let i = 1; (i <= roundsNumber); i += 1) {
+    const { question, answer } = getRoundData();
+    console.log(`Question: ${question}`);
     const userAnswer = readlineSync.question('Your answer: ');
-    if (userAnswer === gameIteration.answer) {
-      output('Correct!');
+    if (userAnswer === answer) {
+      console.log('Correct!');
     } else {
-      output(`"${userAnswer}" is wrong answer ;(. Correct answer was "${gameIteration.answer}"`);
+      console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${answer}"`);
       isAnswercorrect = false;
+      break;
     }
   }
   if (isAnswercorrect) {
-    output(`Congratulations, ${playerName}!`);
+    console.log(`Congratulations, ${playerName}!`);
   } else {
-    output(`Let's try again, ${playerName}!`);
+    console.log(`Let's try again, ${playerName}!`);
   }
 }

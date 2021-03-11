@@ -1,10 +1,8 @@
 import getRandomNum from '../utils.js';
 
-export function taskDescription() {
-  return 'What is the result of the expression?';
-}
+export const taskDescription = 'What is the result of the expression?';
 
-function setParams() {
+function getParams() {
   const maxNum = 100;
   const maxNumMult = 10;
   const input = [0, 0, 0];
@@ -68,8 +66,8 @@ function calcCorrectAnswer(input) {
   return String(correctAnswer);
 }
 
-export function setGame() {
-  const input = setParams();
+export function getRoundData() {
+  const input = getParams();
   const question = askQuestion(input);
   const answer = calcCorrectAnswer(input);
   return { question, answer };

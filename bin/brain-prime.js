@@ -3,9 +3,9 @@
 import executeChallange from '../src/index.js';
 
 import {
-  setGame,
+  getRoundData,
   taskDescription,
 }
   from '../src/games/prime.js';
 
-executeChallange(taskDescription, setGame);
+executeChallange(taskDescription, getRoundData);

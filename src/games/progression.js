@@ -1,10 +1,8 @@
 import getRandomNum from '../utils.js';
 
-export function taskDescription() {
-  return 'What number is missing in the progression?';
-}
+export const taskDescription = 'What number is missing in the progression?';
 
-function setParams() {
+function getParams() {
   const maxNumMult = 10;
   const input = [0, 0, 0, 0];
   let start = 0;
@@ -46,8 +44,8 @@ function calcCorrectAnswer(input) {
   return String(correctAnswer);
 }
 
-export function setGame() {
-  const input = setParams();
+export function getRoundData() {
+  const input = getParams();
   const question = askQuestion(input);
   const answer = calcCorrectAnswer(input);
   return { question, answer };

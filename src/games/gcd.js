@@ -1,10 +1,8 @@
 import getRandomNum from '../utils.js';
 
-export function taskDescription() {
-  return 'Find the greatest common divisor of given numbers.';
-}
+export const taskDescription = 'Find the greatest common divisor of given numbers.';
 
-function setParams() {
+function getParams() {
   const maxNumMult = 10;
   const input = [0, 0];
   let num1 = getRandomNum(maxNumMult, 1);
@@ -35,8 +33,8 @@ function calcCorrectAnswer(input) {
   return undefined;
 }
 
-export function setGame() {
-  const input = setParams();
+export function getRoundData() {
+  const input = getParams();
   const question = askQuestion(input);
   const answer = calcCorrectAnswer(input);
   return { question, answer };
