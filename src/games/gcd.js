@@ -2,29 +2,10 @@ import getRandomNum from '../utils.js';
 
 export const taskDescription = 'Find the greatest common divisor of given numbers.';
 
-function getParams() {
-  const maxNumMult = 10;
-  const input = [0, 0];
-  let num1 = getRandomNum(maxNumMult, 1);
-  let num2 = getRandomNum(maxNumMult, 1);
-  const num3 = getRandomNum(maxNumMult, 1);
-  num1 *= num3;
-  num2 *= num3;
-  input[0] = num1;
-  input[1] = num2;
-  return input;
-}
-
-function askQuestion(input) {
-  const num1 = input[0];
-  const num2 = input[1];
-  return `${num1} ${num2}`;
-}
-
-function calcCorrectAnswer(input) {
-  let a = Math.min(input[0], input[1]);
-  let b = Math.max(input[0], input[1]);
-  while (input.length > 0) {
+function calcCorrectAnswer(num1, num2) {
+  let a = Math.min(num1, num2);
+  let b = Math.max(num1, num2);
+  while (a > 0) {
     if (b === 0) return String(a);
     a %= b;
     if (a === 0) return String(b);
@@ -34,8 +15,10 @@ function calcCorrectAnswer(input) {
 }
 
 export function getRoundData() {
-  const input = getParams();
-  const question = askQuestion(input);
-  const answer = calcCorrectAnswer(input);
+  const divider = getRandomNum(7, 2);
+  const num1 = getRandomNum(10, 1) * divider;
+  const num2 = getRandomNum(10, 1) * divider;
+  const question = `${num1} ${num2}`;
+  const answer = calcCorrectAnswer(num1, num2);
   return { question, answer };
 }

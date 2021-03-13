@@ -2,23 +2,13 @@ import getRandomNum from '../utils.js';
 
 export const taskDescription = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-function getParams() {
-  const maxNum = 100;
-  const input = getRandomNum(maxNum, 1);
-  return input;
-}
-
-function askQuestion(input) {
-  return input;
-}
-
-function calcCorrectAnswer(input) {
-  return (input % 2 === 0) ? 'yes' : 'no';
+function isNumberEven(input) {
+  return (input % 2 === 0);
 }
 
 export function getRoundData() {
-  const input = getParams();
-  const question = askQuestion(input);
-  const answer = calcCorrectAnswer(input);
+  const num = getRandomNum(100, 1);
+  const question = `${num}`;
+  const answer = isNumberEven(num) ? 'yes' : 'no';
   return { question, answer };
 }

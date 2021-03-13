@@ -2,62 +2,21 @@ import getRandomNum from '../utils.js';
 
 export const taskDescription = 'What is the result of the expression?';
 
-function getParams() {
-  const maxNum = 100;
-  const maxNumMult = 10;
-  const input = [0, 0, 0];
-  const numberOpers = 3; // 0 = '+', 1 = '-', 2 = '*'
-  let num1 = 0;
-  let num2 = 0;
-  let oper = 0;
-  oper = getRandomNum(numberOpers, 0);
-  if (oper <= 1) {
-    num1 = getRandomNum(maxNum, 1);
-    num2 = getRandomNum(maxNum, 1);
-  } else {
-    num1 = getRandomNum(maxNumMult, 1);
-    num2 = getRandomNum(maxNumMult, 1);
-  }
-  input[0] = oper;
-  input[1] = Math.max(num1, num2);
-  input[2] = Math.min(num1, num2);
-  return input;
-}
+const operators = '+-*';
+const addition = 0;
+const subtraction = 1;
+const multiplication = 2;
 
-function askQuestion(input) {
-  let operStr = '';
-  const oper = input[0];
-  const num1 = input[1];
-  const num2 = input[2];
-  switch (oper) {
-    case 0:
-      operStr = '+';
-      break;
-    case 1:
-      operStr = '-';
-      break;
-    case 2:
-      operStr = '*';
-      break;
-    default:
-      operStr = '';
-  }
-  return `${num1} ${operStr} ${num2}`;
-}
-
-function calcCorrectAnswer(input) {
-  const oper = input[0];
-  const num1 = input[1];
-  const num2 = input[2];
+function calcCorrectAnswer(operator, num1, num2) {
   let correctAnswer;
-  switch (oper) {
-    case 0:
+  switch (operator) {
+    case addition:
       correctAnswer = num1 + num2;
       break;
-    case 1:
+    case subtraction:
       correctAnswer = num1 - num2;
       break;
-    case 2:
+    case multiplication:
       correctAnswer = num1 * num2;
       break;
     default:
@@ -67,8 +26,10 @@ function calcCorrectAnswer(input) {
 }
 
 export function getRoundData() {
-  const input = getParams();
-  const question = askQuestion(input);
-  const answer = calcCorrectAnswer(input);
+  const operator = getRandomNum(operators.length, 0);
+  const num1 = getRandomNum(10, 1);
+  const num2 = getRandomNum(10, 1);
+  const question = `${num1} ${operators[operator]} ${num2}`;
+  const answer = calcCorrectAnswer(operator, num1, num2);
   return { question, answer };
 }
