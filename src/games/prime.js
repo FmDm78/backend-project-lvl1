@@ -2,8 +2,14 @@ import getRandomNum from '../utils.js';
 
 export const taskDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-function isNumberPrime(num) {
-  for (let i = 2; i < num; i += 1) {
+function isPrime(num) {
+  if (num <= 1) {
+    return false;
+  }
+  if (num <= 3) {
+    return true;
+  }
+  for (let i = 2; i <= Math.sqrt(num); i += 1) {
     if (num % i === 0) {
       return false;
     }
@@ -13,7 +19,7 @@ function isNumberPrime(num) {
 
 export function getRoundData() {
   const num = getRandomNum(100, 1);
-  const question = `${num}`;
-  const answer = isNumberPrime(num) ? 'yes' : 'no';
+  const question = String(num);
+  const answer = isPrime(num) ? 'yes' : 'no';
   return { question, answer };
 }
