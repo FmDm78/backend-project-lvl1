@@ -1,4 +1,4 @@
-import getRandomNum from '../utils.js';
+import { getRandomNum } from '../utils.js';
 
 export const taskDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 

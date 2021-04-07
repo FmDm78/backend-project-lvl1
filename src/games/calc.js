@@ -1,4 +1,4 @@
-import getRandomNum from '../utils.js';
+import { getRandomNum } from '../utils.js';
 
 export const taskDescription = 'What is the result of the expression?';
 

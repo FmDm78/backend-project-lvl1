@@ -1,4 +1,4 @@
-import getRandomNum from '../utils.js';
+import { getRandomNum } from '../utils.js';
 
 export const taskDescription = 'Answer "yes" if the number is even, otherwise answer "no".';
 
