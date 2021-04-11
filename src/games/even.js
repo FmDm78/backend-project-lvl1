@@ -1,4 +1,4 @@
-import { getRandomNum } from '../utils.js';
+import { generateNumber } from '../utils.js';
 
 export const taskDescription = 'Answer "yes" if the number is even, otherwise answer "no".';
 
@@ -7,7 +7,7 @@ function isEven(input) {
 }
 
 export function getRoundData() {
-  const num = getRandomNum(100, 1);
+  const num = generateNumber(1, 100);
   const question = String(num);
   const answer = isEven(num) ? 'yes' : 'no';
   return { question, answer };

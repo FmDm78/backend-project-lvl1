@@ -1,5 +1,5 @@
 /* eslint-disable import/prefer-default-export */
 
-export function getRandomNum(max, offset) {
-  return Math.floor((Math.random() * max) + offset);
+export function generateNumber(min, max) {
+  return Math.floor((Math.random() * (max - min + 1)) + min);
 }

@@ -1,4 +1,4 @@
-import { getRandomNum } from '../utils.js';
+import { generateNumber } from '../utils.js';
 
 export const taskDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
@@ -15,7 +15,7 @@ function isPrime(num) {
 }
 
 export function getRoundData() {
-  const num = getRandomNum(100, 1);
+  const num = generateNumber(1, 100);
   const question = String(num);
   const answer = isPrime(num) ? 'yes' : 'no';
   return { question, answer };
