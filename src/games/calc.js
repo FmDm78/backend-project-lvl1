@@ -18,7 +18,7 @@ function calculate(num1, operator, num2) {
 }
 
 export function getRoundData() {
-  const indexOperator = generateNumber(0, operators.length);
+  const indexOperator = generateNumber(0, operators.length - 1);
   const operator = operators[indexOperator];
   const num1 = generateNumber(1, 10);
   const num2 = generateNumber(1, 10);
